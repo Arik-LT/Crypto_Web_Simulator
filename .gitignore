@@ -1,0 +1,5 @@
+keys.py
+.env
+**/__pycache__/
+venv/
+website/database.db

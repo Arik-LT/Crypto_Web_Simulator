@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content%}
+<br />
+<h1 align="center">Today's Cryptocurrency Prices</h1>
+<br />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Coin</th>
+      <th scope="col">Symbol</th>
+      <th scope="col">Price</th>
+      <th scope="col">24h</th>
+      <th scope="col">7 day</th>
+      <th scope="col">30 day</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for coin in coin_list %}
+    <tr>
+      <th scope="row">{{loop.index}}</th>
+      <td>{{coin.name}}</td>
+      <td>{{coin.symbol}}</td>
+      <td style="font-weight: bold">{{coin.price}}</td>
+      <td>{{coin.percent_change_24h}} %</td>
+      <td>{{coin.percent_change_7d}} %</td>
+      <td>{{coin.percent_change_30d}} %</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<br />
+
+<h1 align="center">Notes</h1>
+<ul class="list-group list-group-flush" id="notes">
+  {% for note in user.notes %}
+  <li class="list-group-item">
+    {{ note.data }}
+    <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+
+  {% endfor %}
+</ul>
+
+<form method="POST">
+  <textarea name="note" id="note" class="form-control"></textarea>
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Add Note</button>
+  </div>
+</form>
+{% endblock %}

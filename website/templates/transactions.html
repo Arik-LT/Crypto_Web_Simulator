@@ -1,0 +1,124 @@
+{% extends "base.html" %} {% block title %}Transactions{% endblock %} {% block
+content%}
+<br />
+<h3 align="center">Buy Coins</h3>
+<br />
+<form method="POST">
+  <div class="form-group">
+    <label for="coin_from" class="form-label"
+      >What coin do you want to sell?</label
+    >
+    <select class="form-control" name="coin_from" id="conv_from">
+      <option value="EUR">Euro</option>
+      <option value="BTC">Bitcoin</option>
+      <option value="ETH">Ethereum</option>
+      <option value="XRP">Ripple</option>
+      <option value="LTC">Lite Coin</option>
+      <option value="BCH">Bitcoin Cash</option>
+      <option value="BNB">Binance Coin</option>
+      <option value="USDT">US Dollar</option>
+      <option value="EOS">EOS</option>
+      <option value="BSV">Bitcoin SV</option>
+      <option value="XLM">Stellar Lumens</option>
+      <option value="ADA">Cardano</option>
+      <option value="TRX">Tron</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="coin_to" class="form-label"
+      >What coin do you want to buy?</label
+    >
+    <select class="form-control" name="coin_to" id="coin_to">
+      <option value="EUR">Euro</option>
+      <option value="BTC">Bitcoin</option>
+      <option value="ETH">Ethereum</option>
+      <option value="XRP">Ripple</option>
+      <option value="LTC">Lite Coin</option>
+      <option value="BCH">Bitcoin Cash</option>
+      <option value="BNB">Binance Coin</option>
+      <option value="USDT">US Dollar</option>
+      <option value="EOS">EOS</option>
+      <option value="BSV">Bitcoin SV</option>
+      <option value="XLM">Stellar Lumens</option>
+      <option value="ADA">Cardano</option>
+      <option value="TRX">Tron</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="amount">Amount</label>
+    <input type="number" class="form-control" id="amount" name="amount" />
+  </div>
+  <br />
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Buying</th>
+        <th scope="col">Amount</th>
+        <th scope="col">With</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"></th>
+        <td>{{ coin_to }}</td>
+        <td>{{ price }}</td>
+        <td>{{ coin_from }}</td>
+        <td>{{ amount }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br />
+  <div class="d-flex justify-content-center">
+    <div class="form-group">
+      <button
+        type="submit"
+        name="price"
+        value="Check price"
+        class="btn btn-primary"
+      >
+        Check Price
+      </button>
+      <button
+        type="submit"
+        name="submit"
+        value="Submit form"
+        class="btn btn-primary"
+      >
+        Confirm Transaction
+      </button>
+    </div>
+  </div>
+</form>
+<br />
+<br />
+<br />
+<div>
+  <h3 align="center">Transaction History</h3>
+  <br />
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Bought</th>
+        <th scope="col">Amount</th>
+        <th scope="col">With</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
